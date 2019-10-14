@@ -1,0 +1,25 @@
+﻿<Window x:Class="CustomBinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomBinding"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowStartupLocation="CenterScreen" Height="550" Width="950">
+    <Grid>
+        <syncfusion:SfSchedule x:Name="schedule" ScheduleType="Month" ItemsSource="{Binding Meetings}">
+            <syncfusion:SfSchedule.DataContext>
+                <local:ViewModel/>
+            </syncfusion:SfSchedule.DataContext>
+            <syncfusion:SfSchedule.AppointmentMapping>
+                <syncfusion:ScheduleAppointmentMapping
+			AppointmentBackgroundMapping="Color"
+			EndTimeMapping="To"
+			StartTimeMapping="From"
+			SubjectMapping="EventName" 
+			AllDayMapping="AllDay"/>
+            </syncfusion:SfSchedule.AppointmentMapping>
+        </syncfusion:SfSchedule>
+    </Grid>
+</Window>
